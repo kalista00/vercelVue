@@ -1,8 +1,6 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import HelloWorld from './components/HelloWorld.vue'
-import Practice from './components/Practice.vue'
+import Login from './components/Login.vue'
 
-createApp(HelloWorld).mount('#app')
-createApp(Practice).mount('#app1')
+createApp(Login).mount('#app')
