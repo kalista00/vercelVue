@@ -31,7 +31,7 @@ export default {
 
       // 서버에 요청을 보내는 로직을 추가합니다.
       fetch('/api/fetch', { // 여기에 서버의 URL을 넣으세요.
-        method: 'GET', // 또는 'GET', 'PUT', 'DELETE' 등 요청 방식에 맞게 설정하세요.
+        method: 'POST', // 또는 'GET', 'PUT', 'DELETE' 등 요청 방식에 맞게 설정하세요.
         headers: {
           'Content-Type': 'application/json',
           // 필요한 경우 다른 헤더도 추가할 수 있습니다.
