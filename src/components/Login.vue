@@ -15,25 +15,43 @@
   </template>
   
   <script>
-  export default {
-    data() {
-      return {
-        user: {
-          id: '',
-          password: ''
-        }
-      }
-    },
-    methods: {
-      submitForm() {
-        // 여기서 ID와 비밀번호를 처리합니다.
-        // 예: 서버로 전송하거나 콘솔에 출력
-        console.log("ID:", this.user.id);
-        console.log("비밀번호:", this.user.password);
-        // 서버에 요청을 보내는 로직을 여기에 추가하세요.
+export default {
+  data() {
+    return {
+      user: {
+        id: '',
+        password: ''
       }
     }
+  },
+  methods: {
+    submitForm() {
+      console.log("ID:", this.user.id);
+      console.log("비밀번호:", this.user.password);
+
+      // 서버에 요청을 보내는 로직을 추가합니다.
+      fetch('/api/fetch', { // 여기에 서버의 URL을 넣으세요.
+        method: 'GET', // 또는 'GET', 'PUT', 'DELETE' 등 요청 방식에 맞게 설정하세요.
+        headers: {
+          'Content-Type': 'application/json',
+          // 필요한 경우 다른 헤더도 추가할 수 있습니다.
+        },
+        body: JSON.stringify({
+          id: this.user.id,
+          password: this.user.password
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('성공:', data);
+      })
+      .catch((error) => {
+        console.error('오류:', error);
+      });
+    }
   }
+}
+
   </script>
   
   <style>
